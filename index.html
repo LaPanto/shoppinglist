@@ -17,13 +17,56 @@
         <nav id="menu"> <i class="material-icons">menu</i></nav>
     </header>
     <main>
-        <div>
+
+
+    </main>
+    <div class="modal">
+
+        <div id="nuevo">
+            <header>
+                <h2>Producto Nuevo</h2>
+            </header>
+
+            <input type="text" name="producto" placeholder="Pon nombre del producto..">
+
+            <div class="menos">
+                <i id="descontar" class="material-icons" onclick="">remove_circle_outline</i>
+            </div>
+            <div class="cantidad">
+                <input type="number" name="cantidad">
+            </div>
+            <div class="suma">
+                <i id="incrementar" class="material-icons" onclick=""> add_circle_outline</i>
+            </div>
+
+            <label for="tiendas">Tienda:</label>
+            <select name="tiendas" id="tiendas">
+                <option value="Mercadona">Mercadona</option>
+                <option value="FamiliCash">Famili Cash</option>
+                <option value="Consum">Consum</option>
+                <option value="Aldi">Aldi</option>
+                <option value="MaxiDia">MaxiDia</option>
+                <option value="Lidl">Lidl</option>
+                <option value="Alcampo">Alcampo</option>
+                <option value="Maximas">Maximas</option>
+                <option value="CashFamili">CashFamili</option>
+                <option value="Carrefour">Carrefour</option>
+                <option value="Mercado">Mercado</option>
+            </select>
+
+
+            <label form="notas">Notas </label>
+
+            <textarea name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
+            <button id="cancelar">Cancelar</button>
+            <button id="Guardar">Guardar</button>
 
         </div>
-    </main>
-    
-        <div  id="mas"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
+    </div>
 
+    <footer>
+        <div id="mas"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
+    </footer>
 </body>
 
 </html>

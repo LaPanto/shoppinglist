@@ -1,6 +1,9 @@
 header{
     background-color: blueviolet;
 }
-body{
+main{
     background-color: aqua;
+}
+footer{
+    background-color: coral;
 }
