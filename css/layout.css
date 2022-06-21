@@ -89,7 +89,7 @@ footer {
 
 #nuevo {
     width: 80vw;
-    height: 90vh;
+  
     border-radius: 15px;
     
     display: flex;
@@ -102,6 +102,7 @@ footer {
 width: 100%;
 height: 3ch;
 margin: 15px;
+margin-top: 30px;
 }
 
 h2{
@@ -110,15 +111,22 @@ text-align: center
 #tiendas{
     width: 100%;
     height: 3ch;
-    margin: 15 px;
+    margin: 15px;
 }
 #nuevo textarea{
     width: 100%;
-    margin: 15 px;
+    height: 90px;
+    margin: 15px;
+}
+#nuevo label{
+    margin-top: 15px;
+    margin-left: 15px;
 }
 #nuevo button{
     margin:auto;
+    margin-bottom: 10px;
     border-radius: 4px;
+    height:25px;
 }
 .menos,
 .cantidad,
@@ -131,7 +139,8 @@ text-align: center
 .suma{
     margin-right: 15px;
 }
-#menos
-#suma{
-    font-size: 30px;
+.menos
+.suma{
+    font-size: 150px;
 }
+
