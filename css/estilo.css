@@ -31,7 +31,9 @@ footer{
     background-color: var(--primario);
 }
 #mas{
+    color:white;
     background-color: var(--darksecun);
+    border: 5px solid var(--terciario);
 }
 .modal{
     background-color: rgba(236, 240, 246, 0.902);
