@@ -35,6 +35,13 @@ footer{
     background-color: var(--darksecun);
     border: 5px solid var(--terciario);
 }
+.menos,
+.suma {
+    color:white;
+    background-color: var(--darksecun);
+    border: 1px solid var(--terciario);
+}
+
 .modal{
     background-color: rgba(236, 240, 246, 0.902);
 }
@@ -43,6 +50,15 @@ footer{
     background-color: var(--terciario);
     border: 5px solid var(--secundario);
 }
-#nuevo button{
+#nuevo button,
+#visto{
     border:2px solid var(--secundario);
+}
+table input[type="checkbox"]{
+    outline:2px solid var(--secundario);
+}
+.lupa,
+.papelera{
+    color:var(--darksecun);
+    border: 5px solid var(--terciario);
 }

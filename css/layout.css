@@ -97,7 +97,8 @@ footer {
    
 }
 
-#nuevo{
+#nuevo,
+#detalle {
     width: 80vw;
     max-width: 500px;
     border-radius: 15px;
@@ -106,7 +107,7 @@ footer {
     flex-wrap: wrap;
 
     overflow: hidden;
-
+    display: none;
 }
 #nuevo input[type="text"]{
 width: 100%;
@@ -114,7 +115,14 @@ height: 3ch;
 margin: 15px;
 margin-top: 30px;
 }
-
+#nuevo input[type="number"]{
+    width: 100%;
+}
+table input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+    
 h2{
 text-align: center
 }
@@ -147,23 +155,31 @@ text-align: center
 }
 .menos{
     margin-left: 15px;
+    border-radius: 50%;
+    
+    /*posicionamiento del contenido*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cantidad{
+    width:50%;
+    
 }
 .suma{
     margin-right: 15px;
-}
-.menos
-.suma{
-    font-size: 150px;
-}
-#detalle{
-    width: 80vw;
-    border-radius: 15px;
-    
+    border-radius: 50%;
+    /*posicionamiento del contenido*/
     display: flex;
-    flex-wrap: wrap;
-
-    overflow: hidden;
-    display: none;
+    justify-content: center;
+    align-items: center;
+   
+}
+.menos i,
+.suma i{
+    font-size: 30px;
+    
 }
 .informacion{
     width: 100%;
@@ -175,4 +191,17 @@ text-align: center
     border-radius: 4px;
     height:30px;
     width: 65px;
+}
+
+table th{
+    text-align: left;
+    width: 50px;
+
+}
+table{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.lupa {
+    margin-right: 10px;   
 }
