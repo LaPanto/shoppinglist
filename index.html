@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/modal.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,10 @@
                 <label for="productos">Plátanos</label>
             </td>
             <td>
-                <i class="lupa material-icons">search</i>
+                2
+            </td>
+            <td>
+                <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
             </tr>
@@ -38,7 +42,10 @@
                 <label for="productos">Arroz</label>
             </td>
             <td>
-                <i class="lupa material-icons">search</i>
+                0
+            </td>
+            <td>
+                <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
             </tr>
@@ -50,7 +57,10 @@
                 <label for="productos">Cerveza</label>
             </td>
             <td>
-                <i class="lupa material-icons">search</i>
+                0
+            </td>
+            <td>
+                <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
             </tr>
@@ -62,16 +72,19 @@
                 <label for="productos">Lejía</label>
             </td>
             <td>
-                <i class="lupa material-icons">search</i>
+                0
+            </td>
+            <td>
+                <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
             </tr>
         </table>
        
     </main>
-    <div class="modal">
+    <div class="modal" id="modal">
 
-        <div id="nuevo">
+        <div id="nuevo" class="modalhijas">
             <header>
                 <h2>Producto Nuevo</h2>
             </header>
@@ -103,14 +116,39 @@
                 <option value="Mercado">Mercado</option>
             </select>
             <textarea name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
-            <button id="cancelar">Cancelar</button>
-            <button id="Guardar">Guardar</button>
+            <button onclick="escondeModal()" id="cancelar">Cancelar</button>
+            <button onclick='añadeProducto()' id="Guardar">Guardar</button>
+        </div>
+        <div id="detalle" class="modalhijas">
+            <header>
+                <h2>Plátanos</h2>
+            </header>
+            
+            <table class="informacion">
+                <tr>
+                    <th>Comprar:</th>
+                    <td>5</td>
+                    
+                </tr>
+                <tr>
+                    <th>Lugar:</th>
+                    <td>Mercadona</td>
+                </tr>
+                <Tr>
+                    <th>Notas:</th>
+                    <td></td>
+                </Tr>
+                <tr>
+                    <td>vacio las notas</td>
+                </tr>
+            </table>
+            <button onclick="escondeModal()"id="visto">Ok</button>
 
         </div>
     </div>
 
-    <footer>
-        <div id="mas"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
+    <footer></footer>
+        <div id="mas" onclick="muestraModal('nuevo')"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
     </footer>
 </body>
 

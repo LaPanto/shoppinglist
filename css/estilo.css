@@ -38,7 +38,8 @@ footer{
 .modal{
     background-color: rgba(236, 240, 246, 0.902);
 }
-#nuevo{
+#nuevo,
+#detalle{
     background-color: var(--terciario);
     border: 5px solid var(--secundario);
 }
