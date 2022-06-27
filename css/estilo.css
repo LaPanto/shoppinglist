@@ -7,16 +7,9 @@
     --darksecun:#bf028e;
     --terciario:#ffedff;
     --shadow: #d4d4d4;
-
-
-
-    
 }
 
-
-
-
-
+/*colores de cabecera, menu, main y footer*/
 header{
     background-color: var(--primario);
     box-shadow: 0 5px 5px var(--shadow);
@@ -30,21 +23,35 @@ main{
 footer{
     background-color: var(--primario);
 }
+/*color en el boton del + en el main*/
 #mas{
     color:white;
     background-color: var(--darksecun);
     border: 5px solid var(--terciario);
 }
+/*color del contenido del main (table)*/
+table input[type="checkbox"]{
+    outline:2px solid var(--secundario);
+}
+/*iconos color*/
+.lupa,
+.papelera{
+    color:var(--darksecun);
+    border: 5px solid var(--terciario);
+}
+/*color a la modal como capa*/
+.modal{
+    background-color: rgba(236, 240, 246, 0.902);
+}
+/*color a la primera ventana de nuevo producto*/
+/*botones de descontar e incrementar cantidad*/
 .menos,
 .suma {
     color:white;
     background-color: var(--darksecun);
     border: 1px solid var(--terciario);
 }
-
-.modal{
-    background-color: rgba(236, 240, 246, 0.902);
-}
+/*color a la segunda ventanda de información del producto*/
 #nuevo,
 #detalle{
     background-color: var(--terciario);
@@ -54,11 +61,4 @@ footer{
 #visto{
     border:2px solid var(--secundario);
 }
-table input[type="checkbox"]{
-    outline:2px solid var(--secundario);
-}
-.lupa,
-.papelera{
-    color:var(--darksecun);
-    border: 5px solid var(--terciario);
-}
+
