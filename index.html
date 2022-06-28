@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="js/modal.js"></script>
+    <script src="js/tiendas.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
         <nav id="menu"> <i class="material-icons">menu</i></nav>
     </header>
     <main>
-        <table>
+        <table class="rayada">
             <tr>
                 <td>
                 <input type="checkbox" id="productos"name="productos">
@@ -29,7 +30,7 @@
             <td>
                 2
             </td>
-            <td>
+            <td class="iconos">
                 <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
@@ -44,7 +45,7 @@
             <td>
                 0
             </td>
-            <td>
+            <td class="iconos">
                 <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
@@ -59,7 +60,7 @@
             <td>
                 0
             </td>
-            <td>
+            <td class="iconos">
                 <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
@@ -74,13 +75,15 @@
             <td>
                 0
             </td>
-            <td>
+            <td class="iconos">
                 <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
                 <i class="papelera material-icons">delete</i>
             </td>
             </tr>
         </table>
-       
+       <div id="eliminar">
+        <button id="seleccion">Borrar selección</button>
+       </div>
     </main>
     <div class="modal" id="modal">
 
@@ -103,6 +106,7 @@
 
             <label for="tiendas">Tienda:</label>
             <select name="tiendas" id="tiendas">
+                
                 <option value="Mercadona">Mercadona</option>
                 <option value="FamiliCash">Famili Cash</option>
                 <option value="Consum">Consum</option>
