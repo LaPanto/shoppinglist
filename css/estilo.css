@@ -1,64 +1,102 @@
 :root {
-    --primario:#38eef5;
-    --lighprim:#7fffff;
-    --darkprim:#44cbcc;
+    --primario: #38eef5;
+    --lighprim: #7fffff;
+    --darkprim: #44cbcc;
     --secundario: #f551be;
-    --lighsecun:#ffbaff;
-    --darksecun:#bf028e;
-    --terciario:#ffedff;
+    --lighsecun: #ffbaff;
+    --darksecun: #bf028e;
+    --terciario: #ffedff;
     --shadow: #d4d4d4;
 }
 
 /*colores de cabecera, menu, main y footer*/
-header{
+header {
     background-color: var(--primario);
     box-shadow: 0 5px 5px var(--shadow);
 }
-#menu{
-    background-color: var(--lighprim);  
+
+#menu {
+    background-color: var(--lighprim);
 }
-main{
-    background-color:var(--terciario);
+
+main {
+    background-color: var(--terciario);
 }
-footer{
+
+footer {
     background-color: var(--primario);
 }
+
+/*color del titulo principal*/
+h1,
+h2 {
+    color: var(--darksecun);
+}
+
+h1 span:nth-child(2n + 0) {
+    color: var(--secundario);
+}
+
+h1 span:nth-child(2n - 1) {
+    color: var(--darkprim);
+}
+
+
 /*color en el boton del + en el main*/
-#mas{
-    color:white;
+#mas {
+    color: white;
     background-color: var(--darksecun);
     border: 5px solid var(--terciario);
 }
+
 /*color del contenido del main (table)*/
-table input[type="checkbox"]{
-    outline:2px solid var(--secundario);
+table input[type="checkbox"] {
+    outline: 2px solid var(--secundario);
 }
+
+/*color a rayas de cada fila de la tabla*/
+.rayado tr:nth-child(even) {
+    background-color: var(--lighprim);
+}
+
+.rayado tr:nth-child(odd) {
+    background-color: var(--lighsecun);
+}
+
 /*iconos color*/
 .lupa,
-.papelera{
-    color:var(--darksecun);
-    border: 5px solid var(--terciario);
+.papelera,
+.menu {
+    color: var(--darksecun);
 }
+
+/*color y borde del boton de borrar seleccion*/
+.eliminar {
+    border: 2px solid var(--secundario);
+}
+
 /*color a la modal como capa*/
-.modal{
+.modal {
     background-color: rgba(236, 240, 246, 0.902);
 }
+
 /*color a la primera ventana de nuevo producto*/
 /*botones de descontar e incrementar cantidad*/
 .menos,
 .suma {
-    color:white;
+    color: white;
     background-color: var(--darksecun);
     border: 1px solid var(--terciario);
 }
+
 /*color a la segunda ventanda de información del producto*/
 #nuevo,
-#detalle{
+#detalle {
     background-color: var(--terciario);
     border: 5px solid var(--secundario);
 }
-#nuevo button,
-#visto{
-    border:2px solid var(--secundario);
-}
 
+#nuevo button,
+#visto {
+    border: 2px solid var(--secundario);
+}

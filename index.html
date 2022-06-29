@@ -9,78 +9,83 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="js/modal.js"></script>
+    <script src="js/tiendas.js"></script>
 </head>
 
 <body>
 
     <header>
-        <h1>Shopping List</h1>
-        <nav id="menu"> <i class="material-icons">menu</i></nav>
+        <h1 id="h1">Shopping List</h1>
+        <nav id="menu"> <i class="menu material-icons">menu</i></nav>
     </header>
     <main>
-        <table>
+        <table class="rayado">
             <tr>
                 <td>
-                <input type="checkbox" id="productos"name="productos">
-            </td>
-            <td>
-                <label for="productos">Plátanos</label>
-            </td>
-            <td>
-                2
-            </td>
-            <td>
-                <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
-                <i class="papelera material-icons">delete</i>
-            </td>
+                    <input type="checkbox" id="productos" name="productos">
+                </td>
+                <td>
+                    <label for="productos">Plátanos</label>
+                </td>
+                <td>
+                    2
+                </td>
+                <td class="iconos">
+                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
+                    <i class="papelera material-icons">delete</i>
+                </td>
             </tr>
             <tr>
                 <td>
-                <input type="checkbox" name="productos">
-            </td>
-            <td>
-                <label for="productos">Arroz</label>
-            </td>
-            <td>
-                0
-            </td>
-            <td>
-                <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
-                <i class="papelera material-icons">delete</i>
-            </td>
+                    <input type="checkbox" name="productos">
+                </td>
+                <td>
+                    <label for="productos">Arroz</label>
+                </td>
+                <td>
+                    0
+                </td>
+                <td class="iconos">
+                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
+                    <i class="papelera material-icons">delete</i>
+                </td>
             </tr>
             <tr>
                 <td>
-                <input type="checkbox" name="productos">
-            </td>
-            <td>
-                <label for="productos">Cerveza</label>
-            </td>
-            <td>
-                0
-            </td>
-            <td>
-                <i class="lupa material-icons"onclick="muestraModal('detalle')">search</i>
-                <i class="papelera material-icons">delete</i>
-            </td>
+                    <input type="checkbox" name="productos">
+                </td>
+                <td>
+                    <label for="productos">Cerveza</label>
+                </td>
+                <td>
+                    0
+                </td>
+                <td class="iconos">
+                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
+                    <i class="papelera material-icons">delete</i>
+                </td>
             </tr>
             <tr>
                 <td>
-                <input type="checkbox" name="productos">
-            </td>
-            <td>
-                <label for="productos">Lejía</label>
-            </td>
-            <td>
-                0
-            </td>
-            <td>
-                <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
-                <i class="papelera material-icons">delete</i>
-            </td>
+                    <input type="checkbox" name="productos">
+                </td>
+                <td>
+                    <label for="productos">Lejía</label>
+                </td>
+                <td>
+                    0
+                </td>
+                <td class="iconos">
+                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
+                    <i class="papelera material-icons">delete</i>
+                </td>
             </tr>
         </table>
-       
+        <div id="seleccion">
+            <div id="borrado">
+                <button class="eliminar">Borrar selección</button>
+            </div>
+        </div>
     </main>
     <div class="modal" id="modal">
 
@@ -103,7 +108,16 @@
 
             <label for="tiendas">Tienda:</label>
             <select name="tiendas" id="tiendas">
-                <option value="Mercadona">Mercadona</option>
+                <script>
+                    let select = document.getElementById("tiendas");
+                    let opciones = "";
+                    opciones = `<option value="no seleccionado">  </option>`;
+                    for (tienda of col_tiendas.tiendas) {
+                        opciones += `<option value= ${tienda.nombre} > ${tienda.nombre} </option>`
+                    }
+                    select.innerHTML = opciones;
+                </script>
+                <!--<option value="Mercadona">Mercadona</option>
                 <option value="FamiliCash">Famili Cash</option>
                 <option value="Consum">Consum</option>
                 <option value="Aldi">Aldi</option>
@@ -113,7 +127,7 @@
                 <option value="Maximas">Maximas</option>
                 <option value="CashFamili">CashFamili</option>
                 <option value="Carrefour">Carrefour</option>
-                <option value="Mercado">Mercado</option>
+                <option value="Mercado">Mercado</option>-->
             </select>
             <textarea name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
             <button onclick="escondeModal()" id="cancelar">Cancelar</button>
@@ -123,12 +137,12 @@
             <header>
                 <h2>Plátanos</h2>
             </header>
-            
+
             <table class="informacion">
                 <tr>
                     <th>Comprar:</th>
                     <td>5</td>
-                    
+
                 </tr>
                 <tr>
                     <th>Lugar:</th>
@@ -142,13 +156,13 @@
                     <td colspan=2>vacio las notas</td>
                 </tr>
             </table>
-            <button onclick="escondeModal()"id="visto">Ok</button>
+            <button onclick="escondeModal()" id="visto">Ok</button>
 
         </div>
     </div>
 
     <footer></footer>
-        <div id="mas" onclick="muestraModal('nuevo')"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
+    <div id="mas" onclick="muestraModal('nuevo')"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
     </footer>
 </body>
 
