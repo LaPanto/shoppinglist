@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/estilo.css">
     <script src="js/modal.js"></script>
     <script src="js/tiendas.js"></script>
+    <script src="js/productos.js"></script>
 </head>
 
 <body>
@@ -94,13 +95,13 @@
                 <h2>Producto Nuevo</h2>
             </header>
 
-            <input type="text" name="producto" placeholder="Pon nombre del producto..">
+            <input type="text" id="inputNombre" name="producto" placeholder="Pon nombre del producto..">
 
             <div class="menos">
                 <i id="descontar" class="material-icons" onclick="">remove_circle_outline</i>
             </div>
             <div class="cantidad">
-                <input type="number" main=0 name="cantidad" placeholder="Pon la cantidad...">
+                <input type="number" id="inputCantidad" main=0 name="cantidad" placeholder="Pon la cantidad...">
             </div>
             <div class="suma">
                 <i id="incrementar" class="material-icons" onclick=""> add_circle_outline</i>
@@ -109,13 +110,19 @@
             <label for="tiendas">Tienda:</label>
             <select name="tiendas" id="tiendas">
                 <script>
-                    let select = document.getElementById("tiendas");
-                    let opciones = "";
-                    opciones = `<option value="no seleccionado">  </option>`;
-                    for (tienda of col_tiendas.tiendas) {
+                   rellenaSelect("tiendas",col_tiendas.tiendas);
+                    /*-------*/
+                   /* let select = document.getElementById("tiendas");/*se guarda en select para no tener que poner toda la retafila posteriormente*/
+                   /* let opciones = "";/*el select necesita unas opciones y guardamos una cajita vacia y luego se trabaja*/
+                    
+                    /*opciones = `<option value="no seleccionado">  </option>`; /*se le da un contenido de un valor vacio*/
+                    
+                   /* for (tienda of col_tiendas.tiendas) {
                         opciones += `<option value= ${tienda.nombre} > ${tienda.nombre} </option>`
-                    }
-                    select.innerHTML = opciones;
+                    }/*quiero recorrer mis tiendas por medio de bucles y hacer un option a cada tienda*/
+                    /*tienda es un nombre cualquiera, cojo la caja de opciones y la incremento añadiendo cada option por tiendas*/
+                    /*select.innerHTML = opciones;/*de toda mi web de select en su contenido meter las opciones*/
+                    /*-----*/
                 </script>
                 <!--<option value="Mercadona">Mercadona</option>
                 <option value="FamiliCash">Famili Cash</option>
@@ -129,9 +136,9 @@
                 <option value="Carrefour">Carrefour</option>
                 <option value="Mercado">Mercado</option>-->
             </select>
-            <textarea name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
+            <textarea id="notasProducto" name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
             <button onclick="escondeModal()" id="cancelar">Cancelar</button>
-            <button onclick='añadeProducto()' id="Guardar">Guardar</button>
+            <button onclick="creaProducto()" id="Guardar" >Guardar</button>
         </div>
         <div id="detalle" class="modalhijas">
             <header>
