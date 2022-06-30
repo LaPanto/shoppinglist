@@ -20,7 +20,7 @@
         <nav id="menu"> <i class="menu material-icons">menu</i></nav>
     </header>
     <main>
-        <table class="rayado">
+        <table class="rayado" id="tabla_Productos">
             <tr>
                 <td>
                     <input type="checkbox" id="productos" name="productos">
@@ -28,7 +28,7 @@
                 <td>
                     <label for="productos">Plátanos</label>
                 </td>
-                <td>
+                <td class="td_cantidad">
                     2
                 </td>
                 <td class="iconos">
@@ -137,7 +137,7 @@
                 <option value="Mercado">Mercado</option>-->
             </select>
             <textarea id="notasProducto" name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
-            <button onclick="escondeModal()" id="cancelar">Cancelar</button>
+            <button onclick="limpiaProducto()" id="cancelar">Cancelar</button>
             <button onclick="creaProducto()" id="Guardar" >Guardar</button>
         </div>
         <div id="detalle" class="modalhijas">

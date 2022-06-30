@@ -10,7 +10,7 @@ col_tiendas = {
         {nombre: "MaxiDia"},
         {nombre: "Lidl"},
         {nombre: "Alcampo"},
-        {nombre: "Maximas"},
+        {nombre: "Masymas"},
         {nombre: "CashFamily"},
         {nombre: "Carrefour"},
         {nombre: "Mercado"}
