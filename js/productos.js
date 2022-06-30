@@ -4,6 +4,8 @@ col_productos = {
     "productos": []
 }
 
+recuperarProductos(); 
+
 /*
 col_productos={
     productos:[
@@ -106,4 +108,16 @@ function rellenaLista(){
 
 
    }
+}
+/**
+ * sirve para recuperar los archivos
+ */
+function recuperarProductos() {
+
+    if(localStorage.getItem("col_productos")){
+
+    col_productos = localStorage.getItem("col_productos"); //recojo la cadena
+    col_productos = JSON.parse(col_productos); //lo hago un JSON
+
+    }
 }
