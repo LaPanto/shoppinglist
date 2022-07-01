@@ -19,8 +19,8 @@
         <h1 id="h1">Shopping List</h1>
         <nav id="menu"> <i class="menu material-icons">menu</i></nav>
     </header>
-    <main>
-        <table class="rayado" id="tabla_Productos">
+    <main id="main">
+        <!--<table class="rayado" id="tabla_Productos">
             <tr>
                 <td>
                     <input type="checkbox" id="productos" name="productos">
@@ -90,7 +90,7 @@
         <script>
             recuperarProductos();
             rellenaLista();
-        </script>
+        </script>-->
     </main>
     <div class="modal" id="modal">
 
@@ -102,19 +102,19 @@
             <input type="text" id="inputNombre" name="producto" placeholder="Pon nombre del producto..">
 
             <div class="menos">
-                <i id="descontar" class="material-icons" onclick="">remove_circle_outline</i>
+                <i id="descontar" class="material-icons" onclick="sumaNumMin(-1,`inputCantidad`)">remove_circle_outline</i>
             </div>
             <div class="cantidad">
                 <input type="number" id="inputCantidad" main=0 name="cantidad" placeholder="Pon la cantidad...">
             </div>
             <div class="suma">
-                <i id="incrementar" class="material-icons" onclick=""> add_circle_outline</i>
+                <i id="incrementar" class="material-icons" onclick="sumaNumMin(1,`inputCantidad`)"> add_circle_outline</i>
             </div>
 
             <label for="tiendas">Tienda:</label>
             <select name="tiendas" id="tiendas">
                 <script>
-                   rellenaSelect("tiendas",col_tiendas.tiendas);
+                   /*rellenaSelect("tiendas",col_tiendas.tiendas);
                     /*-------*/
                    /* let select = document.getElementById("tiendas");/*se guarda en select para no tener que poner toda la retafila posteriormente*/
                    /* let opciones = "";/*el select necesita unas opciones y guardamos una cajita vacia y luego se trabaja*/
@@ -175,6 +175,12 @@
     <footer></footer>
     <div id="mas" onclick="muestraModal('nuevo')"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
     </footer>
+    <script>
+
+        recuperarProductos();
+        rellenaLista();
+        rellenaSelect("tiendas",col_tiendas.tiendas);
+    </script>
 </body>
 
 </html>

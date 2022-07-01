@@ -33,6 +33,14 @@ function creaProducto() {
     let cantidad = document.getElementById("inputCantidad").value; /*habria que validar*/
     let tienda = document.getElementById("tiendas").value;
     let notas = document.getElementById("notasProducto").value;
+
+    /*validamos que el nombre no este vacio*/
+    nombre=nombre.toLowerCase(); /*ponemos todo minuscula*/
+    nombre = nombre.slice(0,1).toUpperCase() + nombre.slice(1); /*cortamos la primera y la ponemos en mayuscula y la añadimos al nombre*/
+    if (nombre.trim()=="") {
+        limpiaProducto(); //se llama esta funcion para que limpie sino no haría nada el boton
+        return false;
+    }
     /*validamos la cantidad porque no queremos compras negativas*/
     if (cantidad <= 0) {
         cantidad = 1;
@@ -73,6 +81,8 @@ function limpiaProducto() {
 
 /**
  * Actualiza la lista
+ * Hacemos la tabla del main desde la funcion
+ * 
  */
 function rellenaLista(){
 /*
@@ -92,22 +102,39 @@ function rellenaLista(){
                 </td>
             </tr>
     */
-    document.getElementById("tabla_Productos").innerHTML="";
+    /*document.getElementById("tabla_Productos").innerHTML="";*/
+    let contenedor = document.getElementById("main");
+    let tabla = `<table class="rayado" id="tabla_Productos">`;
 
    for (producto of col_productos.productos) {
+    indice=col_productos.productos.indexOf(producto);
      filaTabla=
         `<tr>
             <td><input type="checkbox" id="productos${producto.nombre}" name="productos${producto.nombre}"></td>
             <td><label for="productos${producto.nombre}">${producto.nombre}</label></td>
             <td class="td_cantidad">${producto.cantidad}</td>
             <td class="iconos"><i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
-            <i class="papelera material-icons">delete</i></td>
+            <i class="papelera material-icons" onclick='borraProducto(${indice})'>delete</i></td>
+       
         </tr>`;
+    /*<i class="papelera material-icons" onclick='borraProducto("${col_productos.productos.indexOf(producto)}")'>delete</i></td>*/
+    tabla += filaTabla;
 
-    document.getElementById("tabla_Productos").innerHTML += filaTabla;
+    /*document.getElementById("tabla_Productos").innerHTML += filaTabla;*/
 
 
    }
+   tabla +="</table>";
+   contenedor.innerHTML = tabla;
+
+   //añadimos el boton de borrar los articulos seleccionados
+   contenedor.innerHTML+=
+
+   `    <div id="seleccion">
+            <div id="borrado">
+                <button class="eliminar" onclick="borrarcheckbox()">Borrar selección</button>
+            </div>
+        </div>`
 }
 /**
  * sirve para recuperar los archivos
@@ -121,3 +148,27 @@ function recuperarProductos() {
 
     }
 }
+
+/**
+ *funcion para borrar producto con el icono de la papelera mediante la posicion
+ * @param {*} eliminable el producto eliminable
+ */
+function borraProducto(eliminable) {
+    //1. Eliminar el producto del JSON
+    col_productos.productos.splice(eliminable,1); //splice elimina el que indiquemos y el pop elimina siempre el ultimo
+
+    //2. Guardar el JSON nuevo en el localStorage, es una copia de seguridad
+    localStorage.setItem("col_productos", JSON.stringify(col_productos));
+
+    //3. Volver a rellenar la lista
+    rellenaLista();
+}
+/*function borraProducto(eliminable){
+    //1.Eliminar el producto JSON
+
+    //2. Guardar el JSON nuevo en el localStorage, es una copia de seguridad
+    localStorage.setItem("col_productos", JSON.stringify(col_productos));
+
+    //3. Volver a rellenar la lista
+    rellenaLista();
+}*/
