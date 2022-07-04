@@ -217,7 +217,9 @@ table {
     margin-right: 20px;
     border-collapse: collapse;
 }
-
+.numero{
+    padding-left: 10px;
+}
 .lupa {
     margin-right: 10px;
 }

@@ -49,7 +49,8 @@ function creaProducto() {
         "nombre": nombre,
         "cantidad": cantidad,
         "tienda": tienda,
-        "notas": notas
+        "notas": notas,
+        "comprado": false
     });
     //Actualizo la lista
     rellenaLista();
@@ -105,15 +106,19 @@ function rellenaLista(){
     /*document.getElementById("tabla_Productos").innerHTML="";*/
     let contenedor = document.getElementById("main");
     let tabla = `<table class="rayado" id="tabla_Productos">`;
+    let marcado="";
 
    for (producto of col_productos.productos) {
     indice=col_productos.productos.indexOf(producto);
+    if (producto.comprado) {
+        marcado="checked";
+    }
      filaTabla=
         `<tr>
-            <td><input type="checkbox" id="productos${producto.nombre}" name="productos${producto.nombre}"></td>
+            <td><input type="checkbox" id="productos${producto.nombre}" name="productos${producto.nombre}" ${marcado} onchange="cambiaComprado(${indice})"></td>
             <td><label for="productos${producto.nombre}">${producto.nombre}</label></td>
             <td class="td_cantidad">${producto.cantidad}</td>
-            <td class="iconos"><i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
+            <td class="iconos"><i class="lupa material-icons" onclick='detalleProducto(${indice})'>search</i>
             <i class="papelera material-icons" onclick='borraProducto(${indice})'>delete</i></td>
        
         </tr>`;
@@ -172,3 +177,54 @@ function borraProducto(eliminable) {
     //3. Volver a rellenar la lista
     rellenaLista();
 }*/
+/**
+ * Funcion para la lupa, enseña la modal de informacion del producto
+ * @param {*} indice 
+ */
+
+function detalleProducto(indice){
+   /* <header><h2>Plátanos</h2></header>
+    <table class="informacion">
+    <tr><th>Comprar:</th>
+    <td>5</td></tr>
+    <tr><th>Lugar:</th>
+    <td>Mercadona</td></tr>
+    <Tr><th>Notas:</th>
+    <td></td></Tr>
+    <tr><td colspan=2>vacio las notas</td></tr></table>
+    <button onclick="escondeModal()" id="visto">Ok</button>
+    </div>*/
+
+    let informacion = ""; /*me abro una caja*/
+    let producto = col_productos.productos[indice]; /*guardo en la caja la coletilla*/
+    let ventana = document.getElementById(`detalle`);
+
+    informacion =
+    `<header><h2>${producto.nombre}</h2></header>
+    <table class="informacion">
+    <tr><th>Comprar:</th>
+    <td class="numero">${producto.cantidad}</td></tr>
+    <tr><th>Lugar:</th>
+    <td>${producto.tienda}</td></tr>
+    <Tr><th>Notas:</th>
+    <td></td></Tr>
+    <tr><td colspan=2>${producto.notas}</td></tr></table>
+    <button onclick="escondeModal()" id="visto">Ok</button>
+    </div>`
+
+    ventana.innerHTML = informacion;
+    muestraModal(`detalle`);
+}
+
+/**
+ * funcion para que el checkbox se marque cuando lo toquemos, es decir que reaccione al cambio
+ * @param {} params 
+ */
+function cambiaComprado(indice) {
+   
+   col_productos.productos[indice].comprado = !col_productos.productos[indice].comprado; /*recoger mi producto y luego lo negamos porque es si true o false*/
+   localStorage.setItem("col_productos", JSON.stringify(col_productos));
+   //Actualiza ahora o no a gusto del desarrollador.
+   rellenaLista();
+  
+}
