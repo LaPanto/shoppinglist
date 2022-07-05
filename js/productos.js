@@ -12,12 +12,14 @@ col_productos={
         {nombre: "cerveza",
          cantidad: 24,
          tienda: "Alcampo",
-         notas: "Las de San Miguel están de oferta"},
+         notas: "Las de San Miguel están de oferta",
+         comprado: "false"},
 
         {nombre: "arroz",
          cantidad: 2,
          tienda: "Mercadona",
-         notas: "Tipo Bomba"},     
+         notas: "Tipo Bomba",
+         comprado: "false"},    
     ]
 }
 */
@@ -110,8 +112,11 @@ function rellenaLista(){
 
    for (producto of col_productos.productos) {
     indice=col_productos.productos.indexOf(producto);
+    /*marcamos el checked cuando este vacio y se haya comprado*/
     if (producto.comprado) {
         marcado="checked";
+    }else{
+        marcado="";
     }
      filaTabla=
         `<tr>
@@ -183,7 +188,8 @@ function borraProducto(eliminable) {
  */
 
 function detalleProducto(indice){
-   /* <header><h2>Plátanos</h2></header>
+   /* SACADO DE MI PROTOTIPO - ES LA PINTA QUE DEBERIA TENER EL DETALLE DE CADA PRODUCTO
+   <header><h2>Plátanos</h2></header>
     <table class="informacion">
     <tr><th>Comprar:</th>
     <td>5</td></tr>
@@ -193,7 +199,7 @@ function detalleProducto(indice){
     <td></td></Tr>
     <tr><td colspan=2>vacio las notas</td></tr></table>
     <button onclick="escondeModal()" id="visto">Ok</button>
-    </div>*/
+    */
 
     let informacion = ""; /*me abro una caja*/
     let producto = col_productos.productos[indice]; /*guardo en la caja la coletilla*/
@@ -209,8 +215,7 @@ function detalleProducto(indice){
     <Tr><th>Notas:</th>
     <td></td></Tr>
     <tr><td colspan=2>${producto.notas}</td></tr></table>
-    <button onclick="escondeModal()" id="visto">Ok</button>
-    </div>`
+    <button onclick="escondeModal()" id="visto">Ok</button>`
 
     ventana.innerHTML = informacion;
     muestraModal(`detalle`);
@@ -227,4 +232,11 @@ function cambiaComprado(indice) {
    //Actualiza ahora o no a gusto del desarrollador.
    rellenaLista();
   
+}
+/**
+ * Esta funcion hace que el focus este en el input de nombre cuando se crea
+ */
+function focusEnNuevo() {
+    muestraModal('nuevo');
+    document.getElementById("inputNombre").focus();
 }

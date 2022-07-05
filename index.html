@@ -20,77 +20,7 @@
         <nav id="menu"> <i class="menu material-icons">menu</i></nav>
     </header>
     <main id="main">
-        <!--<table class="rayado" id="tabla_Productos">
-            <tr>
-                <td>
-                    <input type="checkbox" id="productos" name="productos">
-                </td>
-                <td>
-                    <label for="productos">Plátanos</label>
-                </td>
-                <td class="td_cantidad">
-                    2
-                </td>
-                <td class="iconos">
-                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
-                    <i class="papelera material-icons">delete</i>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" name="productos">
-                </td>
-                <td>
-                    <label for="productos">Arroz</label>
-                </td>
-                <td>
-                    0
-                </td>
-                <td class="iconos">
-                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
-                    <i class="papelera material-icons">delete</i>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" name="productos">
-                </td>
-                <td>
-                    <label for="productos">Cerveza</label>
-                </td>
-                <td>
-                    0
-                </td>
-                <td class="iconos">
-                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
-                    <i class="papelera material-icons">delete</i>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" name="productos">
-                </td>
-                <td>
-                    <label for="productos">Lejía</label>
-                </td>
-                <td>
-                    0
-                </td>
-                <td class="iconos">
-                    <i class="lupa material-icons" onclick="muestraModal('detalle')">search</i>
-                    <i class="papelera material-icons">delete</i>
-                </td>
-            </tr>
-        </table>
-        <div id="seleccion">
-            <div id="borrado">
-                <button class="eliminar">Borrar selección</button>
-            </div>
-        </div>
-        <script>
-            recuperarProductos();
-            rellenaLista();
-        </script>-->
+
     </main>
     <div class="modal" id="modal">
 
@@ -112,68 +42,20 @@
             </div>
 
             <label for="tiendas">Tienda:</label>
-            <select name="tiendas" id="tiendas">
-                <script>
-                   /*rellenaSelect("tiendas",col_tiendas.tiendas);
-                    /*-------*/
-                   /* let select = document.getElementById("tiendas");/*se guarda en select para no tener que poner toda la retafila posteriormente*/
-                   /* let opciones = "";/*el select necesita unas opciones y guardamos una cajita vacia y luego se trabaja*/
-                    
-                    /*opciones = `<option value="no seleccionado">  </option>`; /*se le da un contenido de un valor vacio*/
-                    
-                   /* for (tienda of col_tiendas.tiendas) {
-                        opciones += `<option value= ${tienda.nombre} > ${tienda.nombre} </option>`
-                    }/*quiero recorrer mis tiendas por medio de bucles y hacer un option a cada tienda*/
-                    /*tienda es un nombre cualquiera, cojo la caja de opciones y la incremento añadiendo cada option por tiendas*/
-                    /*select.innerHTML = opciones;/*de toda mi web de select en su contenido meter las opciones*/
-                    /*-----*/
-                </script>
-                <!--<option value="Mercadona">Mercadona</option>
-                <option value="FamiliCash">Famili Cash</option>
-                <option value="Consum">Consum</option>
-                <option value="Aldi">Aldi</option>
-                <option value="MaxiDia">MaxiDia</option>
-                <option value="Lidl">Lidl</option>
-                <option value="Alcampo">Alcampo</option>
-                <option value="Maximas">Maximas</option>
-                <option value="CashFamili">CashFamili</option>
-                <option value="Carrefour">Carrefour</option>
-                <option value="Mercado">Mercado</option>-->
+            <select name="tiendas" id="tiendas">             
+                
             </select>
             <textarea id="notasProducto" name="notas" placeholder="Escriba aquí sus anotaciones..."></textarea>
             <button onclick="limpiaProducto()" id="cancelar">Cancelar</button>
             <button onclick="creaProducto()" id="Guardar" >Guardar</button>
         </div>
         <div id="detalle" class="modalhijas">
-            <header>
-                <h2>Plátanos</h2>
-            </header>
-
-            <table class="informacion">
-                <tr>
-                    <th>Comprar:</th>
-                    <td>5</td>
-
-                </tr>
-                <tr>
-                    <th>Lugar:</th>
-                    <td>Mercadona</td>
-                </tr>
-                <Tr>
-                    <th>Notas:</th>
-                    <td></td>
-                </Tr>
-                <tr>
-                    <td colspan=2>vacio las notas</td>
-                </tr>
-            </table>
-            <button onclick="escondeModal()" id="visto">Ok</button>
-
+           
         </div>
     </div>
 
     <footer></footer>
-    <div id="mas" onclick="muestraModal('nuevo')"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
+    <div id="mas" onclick="focusEnNuevo()"><i id="añadir" class="material-icons"> add_circle_outline</i></div>
     </footer>
     <script>
 
