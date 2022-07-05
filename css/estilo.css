@@ -15,10 +15,6 @@ header {
     box-shadow: 0 5px 5px var(--shadow);
 }
 
-#menu {
-    background-color: var(--lighprim);
-}
-
 main {
     background-color: var(--terciario);
 }
@@ -27,18 +23,18 @@ footer {
     background-color: var(--primario);
 }
 
-/*color del titulo principal*/
-h1,
+/*color del titulo principal y secundario*/
+
 h2 {
     color: var(--darksecun);
 }
 
-h1 span:nth-child(2n + 0) {
+h1 span:nth-child(even) {
     color: var(--secundario);
 }
 
-h1 span:nth-child(2n - 1) {
-    color: var(--darkprim);
+h1 span:nth-child(odd) {
+    color: var(--darksecun);
 }
 
 
@@ -65,8 +61,7 @@ table input[type="checkbox"] {
 
 /*iconos color*/
 .lupa,
-.papelera,
-.menu {
+.papelera{
     color: var(--darksecun);
 }
 

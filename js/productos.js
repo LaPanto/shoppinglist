@@ -43,6 +43,10 @@ function creaProducto() {
         limpiaProducto(); //se llama esta funcion para que limpie sino no haría nada el boton
         return false;
     }
+    /*validamos que notas vaya la primera en mayuscula*/
+    notas=notas.toLowerCase(); /*ponemos todo minuscula*/
+    notas = notas.slice(0,1).toUpperCase() + notas.slice(1); /*cortamos la primera y la ponemos en mayuscula y la añadimos al nombre*/
+    
     /*validamos la cantidad porque no queremos compras negativas*/
     if (cantidad <= 0) {
         cantidad = 1;
@@ -54,6 +58,7 @@ function creaProducto() {
         "notas": notas,
         "comprado": false
     });
+    
     //Actualizo la lista
     rellenaLista();
 
@@ -142,7 +147,7 @@ function rellenaLista(){
 
    `    <div id="seleccion">
             <div id="borrado">
-                <button class="eliminar" onclick="borrarcheckbox()">Borrar selección</button>
+                <button class="eliminar" onclick="borrarComprados()">Borrar</button>
             </div>
         </div>`
 }
@@ -234,9 +239,27 @@ function cambiaComprado(indice) {
   
 }
 /**
- * Esta funcion hace que el focus este en el input de nombre cuando se crea
+ * Esta funcion hace que el focus este en el input del nombre del producto cuando se crea
  */
 function focusEnNuevo() {
     muestraModal('nuevo');
     document.getElementById("inputNombre").focus();
+}
+
+function borrarComprados(){
+    /*
+    1. Recorrer la lista de productos
+    2. comprobar si comprado == true
+    3. si es que si, sacar el indice del producto y hacer splice
+    4. Llamar a borraProducto(indice)    */
+    
+    
+    for (producto of col_productos.productos ) {
+         
+        if (producto.comprado==true) {
+            indice=col_productos.productos.indexOf(producto);
+            borraProducto(indice);
+            borrarComprados();
+        }        
+    }      
 }

@@ -31,22 +31,6 @@ footer {
     bottom: 0px;
 }
 
-/*dimensiones y posicionamiento del menu de la cabecera*/
-#menu {
-    /*dimensiones*/
-    width: 65px;
-    height: 65px;
-    /*posicionamiento*/
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    /*posicionamiento de contenido*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-}
-
 /*dimensiones de como deben aparecer los productos de la lista*/
 main table {
     margin-top: 20px;
@@ -127,8 +111,9 @@ table input[type="checkbox"] {
     width: 100%;
 }
 
-/*posicionamiento del titulo de la modal de añadir producto*/
-h2 {
+
+/*posicionamiento del titulo principal y de la modal de añadir producto*/
+h1, h2 {
     text-align: center
 }
 
